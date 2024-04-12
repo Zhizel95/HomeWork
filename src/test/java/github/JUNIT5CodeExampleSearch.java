@@ -24,6 +24,7 @@ public class JUNIT5CodeExampleSearch {
         $(".Layout-sidebar").$(byText("SoftAssertions")).click();
         //$$("ul li.wiki-more-pages a").get(2).click();
         $("#js-repo-pjax-container").shouldHave(text("Using JUnit5 extend test class"));
+        System.out.println("Don`t worry");
 
     }
 }
