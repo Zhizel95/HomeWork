@@ -1,14 +1,19 @@
+package github;
+
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static org.openqa.selenium.PageLoadStrategy.EAGER;
 
 public class LoginTests {
     @Test
     void successfulLoginTest() {
+
         Configuration.holdBrowserOpen = true;
+        Configuration.pageLoadStrategy = String.valueOf(EAGER);
 
         open("https://school.qa.guru/cms/system/login");
         $(".login-form").shouldHave(text("Войти"));
@@ -75,6 +80,4 @@ public class LoginTests {
         $(".btn-error").shouldHave(text("Неверный пароль"));
 
     }
-
-
 }
