@@ -1,6 +1,7 @@
 package hw3;
 
 import com.codeborne.selenide.Configuration;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.*;
@@ -11,12 +12,19 @@ import static org.openqa.selenium.PageLoadStrategy.EAGER;
 
 public class PracticeFormTests {
 
-    @Test
-    void fillFormTest() {
+    @BeforeAll
+    static void beforeAll(){
+
         Configuration.holdBrowserOpen = true;
         Configuration.pageLoadStrategy = String.valueOf(EAGER);
+        Configuration.baseUrl = "https://demoqa.com";
 
-        open("https://demoqa.com/automation-practice-form/");
+    }
+
+    @Test
+    void fillFormTest() {
+
+        open("/automation-practice-form/");
         $(".text-center").shouldHave(text("Practice Form"));
         executeJavaScript("$('footer').remove()");
 
@@ -44,7 +52,7 @@ public class PracticeFormTests {
 
         $(".modal-dialog").should(appear);
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $(".table-responsive").shouldHave(text("Zhizel Bunchet"));
+        $(".table-responsive").shouldBe(visible).shouldHave(text("Zhizel Bunchet"));
         $(".table-responsive").shouldHave(text("zhizel_bunchet@gmail.com"));
         $(".table-responsive").shouldHave(text("Other"));
         $(".table-responsive").shouldHave(text("7364058671"));
@@ -54,8 +62,6 @@ public class PracticeFormTests {
         $(".table-responsive").shouldHave(text("1.png"));
         $(".table-responsive").shouldHave(text("в Индии походу"));
         $(".table-responsive").shouldHave(text("NCR Noida"));
-
-
 
     }
 

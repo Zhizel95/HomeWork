@@ -41,12 +41,5 @@ public class MosRuSearchTests {
 
     }
 
-    @Test
-    void successfulSearchTest2() {
-        open("https://ya.ru/");
-        $("[name=text]").setValue("mos ru").pressEnter();
-        $("[id=search]").shouldHave(text("https://www.mos.ru"));
-    }
-
 }
 

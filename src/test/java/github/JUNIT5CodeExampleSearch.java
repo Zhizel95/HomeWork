@@ -8,6 +8,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.files.DownloadActions.click;
 
 public class JUNIT5CodeExampleSearch {
 
@@ -17,7 +18,7 @@ public class JUNIT5CodeExampleSearch {
         // Откройте страницу Selenide в Github
         open("https://github.com/selenide/selenide");
         //Перейдите в раздел Wiki проекта
-        $$("ul.UnderlineNav-body li").get(5).click();
+        $(("ul.UnderlineNav-body li"),5).click();
         $(".btn-link").click();
         //Убедитесь, что в списке страниц (Pages) есть страница SoftAssertions
         $("#wiki-pages-box").shouldHave(text("SoftAssertions"));

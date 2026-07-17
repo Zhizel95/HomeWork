@@ -59,14 +59,15 @@ public class RegistrationPage {
     }
 
     public RegistrationPage setSubject(String value) {
+        $("#subjectsInput").click();
         $("#subjectsInput").setValue(value).pressEnter();
 
         return this;
     }
 
-    public RegistrationPage setHobby(String value1, String value2) {
-        $("#hobbiesWrapper").$(byText(value1)).click();
-        $("#hobbiesWrapper").$(byText(value2)).click();
+    public RegistrationPage setHobby(String value) {
+        $("#hobbiesWrapper").$(byText(value)).click();
+//        $("#hobbiesWrapper").$(byText(value2)).click();
 
         return this;
     }

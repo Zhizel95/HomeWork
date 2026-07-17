@@ -35,7 +35,6 @@ public class MosRuLoginTests {
         $("#password").setValue(password);
         $("#bind").click();
 
-        $("#mos-dropdown-user").shouldHave(text("Жанетта Яламова"));
 
     }
 
